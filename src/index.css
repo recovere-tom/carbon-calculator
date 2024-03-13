@@ -26,10 +26,3 @@
     align-items: center;
     text-align: center;
 }
-
-/* Map container */
-
-#mapid {
-    height: 600px;
-    width: 100%;
-}

@@ -4,9 +4,18 @@ import BigFridge from '../../assets/carbonCalculatorAssets/BigFridgeImage.svg';
 import SchoolBag from '../../assets/carbonCalculatorAssets/SchoolBagImage.svg';
 import CarSeat from '../../assets/carbonCalculatorAssets/CarSeatImage.svg';
 import Laptop from '../../assets/carbonCalculatorAssets/LaptopImage.svg';
+import WashingMachine from '../../assets/carbonCalculatorAssets/WashingMachineImage.svg';
+import LinenBedding from '../../assets/carbonCalculatorAssets/LinenBeddingImage.svg';
 
 export const DonationItems = [
     //item weight in KGs
+
+    {
+        itemName: 'Big Fridge',
+        itemDescription: 'Whitegoods',
+        itemWeight: 135,
+        image: BigFridge,
+    },
     {
         itemName: 'Small Fridge',
         itemDescription: 'Whitegoods',
@@ -15,10 +24,10 @@ export const DonationItems = [
     },
 
     {
-        itemName: 'Big Fridge',
+        itemName: 'Washing Machine',
         itemDescription: 'Whitegoods',
-        itemWeight: 135,
-        image: BigFridge,
+        itemWeight: 70,
+        image: WashingMachine,
     },
 
     {
@@ -27,19 +36,17 @@ export const DonationItems = [
         itemWeight: 15,
         image: Microwave,
     },
-
+    {
+        itemName: 'Linen Bedding',
+        itemDescription: 'Baby and child',
+        itemWeight: 2,
+        image: LinenBedding,
+    },
     {
         itemName: 'School Bag',
         itemDescription: 'School',
         itemWeight: 1.5,
         image: SchoolBag,
-    },
-
-    {
-        itemName: 'Car Seat',
-        itemDescription: 'Baby and child',
-        itemWeight: 8,
-        image: CarSeat,
     },
     {
         itemName: 'Laptop',
@@ -47,14 +54,9 @@ export const DonationItems = [
         itemWeight: 2,
         image: Laptop,
     },
+
     {
-        itemName: 'Small Fridge 2',
-        itemDescription: 'Whitegoods',
-        itemWeight: 50,
-        image: SmallFridge,
-    },
-    {
-        itemName: 'Car Seat 2',
+        itemName: 'Car Seat',
         itemDescription: 'Baby and child',
         itemWeight: 8,
         image: CarSeat,
