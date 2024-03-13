@@ -1,47 +1,53 @@
-# Carbon Calculator & Home Page Animation
+# Carbon Calculator
 
-This repo contains two applications.
+Application that calculates the carbon emissions associated with transporting donated items between two international locations.
 
-1. Carbon Calculator - built with React and TypeScript. It calculates the carbon emissions associated with shipping items from one location to another.
+## Technology
 
-2. Home Page Hero Animation - built with React, TypeScript and Framer Motion. Provides an animated hero section for the Recovere Website.
+* React
+* Typescript
+* TailwindCSS
+* Leaflet and React-Leaflet (mapping tool)
+* Eslint
+* Prettier
+* Vite
 
-## Purpose of two applications under one repo (why?)
+## Project Structure
 
-Encountered an issue preventing multiple individual react applications running on the WordPress server.
-
-## Encountered Issue
-
-Applications would not render.
-Error Message:"Uncaught SyntaxError: Identifier 'xx' has already been declared."
-Hypothesis of cause: Attempting to run multiple instances of React / ReactDOM.
-
-## Short Term Solution
-
-Consolidation of applications into a single Vite build file. Using two roots, carbon-calculator-root and hero-section-root, to display the components. Each root is referenced in the wordpress function.php file and accessed using shortcode.
-
-## Structure
-
-The applications share parental folders and are separated into subfolders. Carbon Calculator folders have the prefix 'carbonCalc' - Home Page Hero Animation folders have the prefix 'heroAnimation'.
-
-## Parent Folders
-
-src/data/...: Contains data and types, such as form data and location data.
-src/utils/...: Contains utility functions and context providers.
-src/components: Contains React components used in the applications.
-src/pages: Contains the pages of the applications.
+src/data/...: Contains FormData that handles and validates the user input and the data typing, Origin and Destination Location Data (Long/Lat Coordinates) and Donated Item data.
+src/utils/...: Contains context provider, distance calculations between two long/lat coordinates and the output dashboard calculations / logic.
+src/components/...: Contains the Form, Map, Output Dashboard and general UI components.
+src/pages/...: Contains the main page the application.
 
 ## Key Features
 
-Form Data Management: The application uses a custom hook, useFormState, to manage the state of the form data. The form data includes information about the origin and destination of the shipment, details about the item being shipped, and the calculated carbon emissions. The form data is defined in FormData.ts.
-Context Provider: The application uses a context provider to pass the form state to the components. This is defined in FormDataContext.tsx.
-Location Data: The application includes predefined location data for both the origin and destination of the shipment. This data includes the name, country, longitude, latitude, and country code for each location. The location data is defined in OriginLocations.ts and DestinationLocations.ts.
-Shipping Cost Calculation: The application uses the Australia Post API to calculate the cost of shipping the item. This is done in AusPostApi.ts. (API currently broken. Interim solution: Shipping cost equation found under src\utils\carbonCalcUtils\calculations\useOutputDashboardCalculations.ts )
+* Form Data Management: The application uses a custom hook, useFormState, to manage the state of the form data. The form data includes information about the origin and destination of the shipment, details about the item being shipped, and the calculated carbon emissions. The form data is defined in FormData.ts.
+
+* Context Provider: The application uses a context provider to pass the form state to the components. This is defined in FormDataContext.tsx.
+
+* Location Data: The application includes predefined location data for both the origin and destination of the shipment. This data includes the name, country, longitude, latitude, and country code for each location. The location data is defined in OriginLocations.ts and DestinationLocations.ts.
+
+* Distance Calculation: The Location Data is used in the CalculateDistance.ts function to measure the KMs between the two long/lat co-ordinates.
+
+* Calculations and Logic: Data points are calculated based on the user's selection of Origin Location, Destination Location and Donated Item. These data points include:
+  * Distance in KM between the two locations (CalculateDistance.ts)
+  * Estimated Shipping Costs of the item
+  * Carbon Emissions in KGs to transport that item (based on weight of item and travel distance)
+  * Number of Mobile Phones that could have received a year's worth of charged based on the transportation emissions
+  * Bottles of water that could have been purchased locally in place of the shipping cost
+  * Number of trees required to offset the emissions of the transportation
+  * Calculations, Logic and references found:  src\utils\OutputCalculations.ts
 
 ## Getting Started
 
 To get started with this project, clone the repository and install the dependencies:
 
+* git clone repository-url
+* cd repository-directory
+* npm install
+
 Then, start the development server:
+
+* npm start
 
 The application will be available at <http://localhost:3000>.
