@@ -12,13 +12,13 @@ const MapComponent = () => {
     const originIcon = L.icon({
         iconUrl: originIconImage,
         iconSize: [38, 95], // Size of the icon
-        iconAnchor: [19, 94], // Anchor point of the icon
+        iconAnchor: [20, 60], // Anchor point of the icon
         popupAnchor: [0, -76], // Where the popup should open relative to the iconAnchor
     });
     const destinationIcon = L.icon({
         iconUrl: destinationIconImage,
         iconSize: [38, 95], // Size of the icon
-        iconAnchor: [19, 94], // Anchor point of the icon
+        iconAnchor: [20, 60], // Anchor point of the icon
         popupAnchor: [0, -76], // Where the popup should open relative to the iconAnchor
     });
 
@@ -47,7 +47,7 @@ const MapComponent = () => {
             scrollWheelZoom={false}
             touchZoom={true}
             tap={false}
-            className="flex h-[250px] w-svw flex-shrink rounded-xl lg:h-full lg:w-full"
+            className="flex h-[250px] flex-shrink rounded-xl border border-gray-200 shadow-md lg:h-full lg:w-full"
         >
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

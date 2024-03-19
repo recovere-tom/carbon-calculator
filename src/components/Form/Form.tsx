@@ -70,17 +70,20 @@ export const Form: FC = () => {
 
     return (
         <form className="flex h-full w-full flex-col lg:max-h-[650px] lg:flex-row">
-            {/* Location Selections */}
+            {/* User Form Interface */}
             <div className="flex flex-grow flex-col gap-6">
                 <h4 className="text-2xl text-black transition-all lg:text-3xl">
                     Select <span className="text-[#F8842C]">locations</span>
                 </h4>
+                {/* DropDown Menu Item - Starting Location  */}
                 <DropdownOptions
                     label="Starting Location"
                     options={OriginLocation}
                     onChange={(value) => handleLocationChange(value, 'origin')}
                     defaultValue="Starting Location"
                 />
+                {/* DropDown Menu Item - Destination Location  */}
+
                 <DropdownOptions
                     label="Destination Location"
                     options={DestinationLocation}
@@ -89,15 +92,18 @@ export const Form: FC = () => {
                     }
                     defaultValue="Destination Location"
                 />
+
                 {/* Map Component for mobile view */}
-                <div className="relative mb-10 h-[200px] w-full flex-col rounded-xl border border-gray-200 shadow-md lg:hidden">
+                <div className="relative mx-auto mb-10 h-[200px] w-[90%] flex-col  lg:hidden">
                     <MapComponent />
                 </div>
+
+                {/*  Item Selection Component */}
                 <ItemSelection />
             </div>
 
             {/* Map Component for non-mobile view */}
-            <div className="relative hidden w-[80%] flex-col rounded-xl border border-gray-200 shadow-md lg:ml-12 lg:flex lg:h-[650px]">
+            <div className="relative hidden w-[80%] flex-col rounded-xl lg:ml-12 lg:flex lg:h-[650px]">
                 <MapComponent />
             </div>
         </form>

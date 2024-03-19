@@ -54,7 +54,7 @@ const DashboardItemComponent: FC<DashboardItemComponentProps> = ({
 const OutputDashboard: FC = () => {
     const {
         shippingCosts,
-        carbonEmissionsInKg,
+        calculateTotalCO2e,
         treesNeededToOffsetEmissions,
         mobilePhonesCharged,
         bottlesOfWater,
@@ -79,7 +79,7 @@ const OutputDashboard: FC = () => {
             image: EmissionsImage,
             tooltip: 'Calculation details for carbon emissions...',
             calculateValue: () =>
-                `${carbonEmissionsInKg.toLocaleString()}kg CO2e`,
+                `${Math.floor(calculateTotalCO2e).toLocaleString()}kg CO2e`,
             description: 'in carbon emissions',
         },
         {
