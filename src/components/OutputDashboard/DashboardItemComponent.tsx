@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import AnimatedNumber from "animated-number-react";
 
 interface DashboardItem {
     image: string;
@@ -22,10 +23,12 @@ export const DashboardItemComponent: FC<DashboardItemComponentProps> = ({
 }) => {
     const calculatedValue = item.calculateValue(); // Directly store the calculated value
 
-    // Convert the calculated value to a number for comparison, handling units like 'km' and 'kg CO2e'
+    // Separate the numeric value and the units
     const numericValue = parseFloat(
         calculatedValue.toString().replace(/[^0-9.]/g, '')
     );
+    const units = calculatedValue.toString().replace(/[0-9.]/g, '');
+
 
     // Conditional classes based on rowType
     const imageClasses =
