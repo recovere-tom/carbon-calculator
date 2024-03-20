@@ -1,15 +1,15 @@
 import { FC } from 'react';
-import DistanceImage from '../../assets/carbonCalculatorAssets/DistanceOutputImage.svg';
-import EmissionsImage from '../../assets/carbonCalculatorAssets/EmissionsOutputImage.svg';
-import CostImage from '../../assets/carbonCalculatorAssets/CostOutputImage.svg';
-import BatteryImage from '../../assets/carbonCalculatorAssets/BatteryImage.svg';
-import WaterBottleImage from '../../assets/carbonCalculatorAssets/WaterBottleImage.svg';
-import TreeImage from '../../assets/carbonCalculatorAssets/TreesImage.svg';
+import DistanceImage from '../../assets/carbonCalculatorAssets/DistanceOutputImage.webp';
+import EmissionsImage from '../../assets/carbonCalculatorAssets/EmissionsOutputImage.webp';
+import CostImage from '../../assets/carbonCalculatorAssets/CostOutputImage.webp';
+import BatteryImage from '../../assets/carbonCalculatorAssets/BatteryImage.webp';
+import WaterBottleImage from '../../assets/carbonCalculatorAssets/WaterBottleImage.webp';
+import TreeImage from '../../assets/carbonCalculatorAssets/TreesImage.webp';
 import OutputCalculations from '../../utils/OutputCalculations';
 
 interface DashboardItem {
     image: string;
-    tooltip: string;
+
     calculateValue: () => string | number;
     description: string;
 }
@@ -31,15 +31,9 @@ const DashboardItemComponent: FC<DashboardItemComponentProps> = ({
 
     return (
         <div className="relative col-span-1 h-full w-full rounded-xl py-10 text-lg font-semibold shadow-md">
-            <div
-                className="tooltip tooltip-bottom absolute right-2 top-2"
-                data-tip={item.tooltip}
-            >
-                <span className="badge badge-outline">i</span>
-            </div>
             <img
                 src={item.image}
-                alt=""
+                alt={item.description}
                 className={`mx-auto mb-2 ${imageClasses}`}
             />
             <div className="flex w-full flex-col justify-center text-center">
@@ -64,35 +58,34 @@ const OutputDashboard: FC = () => {
     const dashboardItems: DashboardItem[] = [
         {
             image: DistanceImage,
-            tooltip:
-                "Straight line measured between two location's latitude and longitude",
+
             calculateValue: () => `${distanceKM.toLocaleString()}km`,
             description: 'distance to travel',
         },
         {
             image: CostImage,
-            tooltip: 'Calculation details for the cost...',
+
             calculateValue: () =>
                 distanceKM > 0 ? `$${shippingCosts.toLocaleString()}` : 0,
             description: 'to transport item',
         },
         {
             image: EmissionsImage,
-            tooltip: 'Calculation details for carbon emissions...',
+
             calculateValue: () =>
                 `${Math.floor(calculateTotalCO2e).toLocaleString()}kg CO2e`,
             description: 'in carbon emissions',
         },
         {
             image: BatteryImage,
-            tooltip: 'Calculation details for smart phones charged...',
+
             calculateValue: () =>
                 Math.floor(mobilePhonesCharged).toLocaleString(),
             description: 'smart phones charged per year',
         },
         {
             image: WaterBottleImage,
-            tooltip: 'Calculation details for bottles of water...',
+
             calculateValue: () =>
                 distanceKM > 0
                     ? Math.floor(bottlesOfWater).toLocaleString()
@@ -101,7 +94,7 @@ const OutputDashboard: FC = () => {
         },
         {
             image: TreeImage,
-            tooltip: 'Calculation details for trees needed...',
+
             calculateValue: () => treesNeededToOffsetEmissions.toFixed(2),
             description: 'trees needed to offset carbon',
         },

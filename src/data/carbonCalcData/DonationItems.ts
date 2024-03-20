@@ -1,11 +1,11 @@
-import Microwave from '../../assets/carbonCalculatorAssets/MicrowaveImage.svg';
-import SmallFridge from '../../assets/carbonCalculatorAssets/SmallFridgeImage.svg';
-import BigFridge from '../../assets/carbonCalculatorAssets/BigFridgeImage.svg';
-import SchoolBag from '../../assets/carbonCalculatorAssets/SchoolBagImage.svg';
-import CarSeat from '../../assets/carbonCalculatorAssets/CarSeatImage.svg';
-import Laptop from '../../assets/carbonCalculatorAssets/LaptopImage.svg';
-import WashingMachine from '../../assets/carbonCalculatorAssets/WashingMachineImage.svg';
-import LinenBedding from '../../assets/carbonCalculatorAssets/LinenBeddingImage.svg';
+import Microwave from '../../assets/carbonCalculatorAssets/MicrowaveImage.webp';
+import SmallFridge from '../../assets/carbonCalculatorAssets/SmallFridgeImage.webp';
+import BigFridge from '../../assets/carbonCalculatorAssets/BigFridgeImage.webp';
+import SchoolBag from '../../assets/carbonCalculatorAssets/SchoolBagImage.webp';
+import CarSeat from '../../assets/carbonCalculatorAssets/CarSeatImage.webp';
+import Laptop from '../../assets/carbonCalculatorAssets/LaptopImage.webp';
+import WashingMachine from '../../assets/carbonCalculatorAssets/WashingMachineImage.webp';
+import LinenBedding from '../../assets/carbonCalculatorAssets/LinenBeddingImage.webp';
 
 export const DonationItems = [
     //item weight in KGs

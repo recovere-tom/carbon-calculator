@@ -2,8 +2,8 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { SetMapBounds } from './SetMapBounds';
 import { useFormDataContext } from '../../utils/context/FormDataContext';
-import originIconImage from '../../assets/carbonCalculatorAssets/OriginIcon.svg';
-import destinationIconImage from '../../assets/carbonCalculatorAssets/DestinationIcon.svg';
+import originIconImage from '../../assets/carbonCalculatorAssets/OriginIcon.webp';
+import destinationIconImage from '../../assets/carbonCalculatorAssets/DestinationIcon.webp';
 
 const MapComponent = () => {
     const { formData } = useFormDataContext();
@@ -11,14 +11,14 @@ const MapComponent = () => {
     // Custom icon
     const originIcon = L.icon({
         iconUrl: originIconImage,
-        iconSize: [38, 95], // Size of the icon
-        iconAnchor: [20, 60], // Anchor point of the icon
+        iconSize: [40, 40], // Size of the icon
+        iconAnchor: [20, 40], // Anchor point of the icon
         popupAnchor: [0, -76], // Where the popup should open relative to the iconAnchor
     });
     const destinationIcon = L.icon({
         iconUrl: destinationIconImage,
-        iconSize: [38, 95], // Size of the icon
-        iconAnchor: [20, 60], // Anchor point of the icon
+        iconSize: [40, 40], // Size of the icon
+        iconAnchor: [20, 40], // Anchor point of the icon
         popupAnchor: [0, -76], // Where the popup should open relative to the iconAnchor
     });
 
@@ -47,7 +47,7 @@ const MapComponent = () => {
             scrollWheelZoom={false}
             touchZoom={true}
             tap={false}
-            minZoom={2} // Set minimum zoom level
+            minZoom={1} // Set minimum zoom level
             maxZoom={5} // Set maximum zoom level
             maxBounds={[
                 [-500, -360],

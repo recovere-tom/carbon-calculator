@@ -43,6 +43,14 @@ src/pages/...: Contains the main page the application.
 Version 1: Core functions including dropdown menu for locations, dynamic map, item selection and dashboard output.
 Version 1.1: Improved formula for carbon emissions and shipping costs, changed UI to be clearer on desktop and mobile.
 Version 1.2: Optimised for mobile as map component was overflowing its container on x-axis
+Version 1.3: Converted svg images into Webp for faster loading
+Version 1.4:
+
+* Improved the map functionality to prevent users from zooming in/out and scrolling in a direction infinitely.
+* Included 'ocean blue' tiles where the map might clip / end.
+* Removed tooltip from each dashboard card.
+* Improved 'anchor' location of map pins to better represent the selected locations.
+
 
 ## Getting Started
 
