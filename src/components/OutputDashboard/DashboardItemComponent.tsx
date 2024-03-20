@@ -30,11 +30,11 @@ export const DashboardItemComponent: FC<DashboardItemComponentProps> = ({
     // Conditional classes based on rowType
     const imageClasses =
         rowType === 'top'
-            ? 'w-fit max-w-[50%] max-h-[50%] h-fit lg:w-[50%] lg:max-w-[60%] lg:h-[50%] lg:max-h-[50%] ' // icon sizes top row
-            : 'w-fit max-w-[40%] max-h-[40%] h-fit lg:w-[20%] lg:max-w-[20%] lg:h-[50%] lg:max-h-[60%]'; // icon sizes bottom row
+            ? 'w-24 max-w-28 lg:w-32 lg:max-w-36 h-fit ' // icon sizes top row
+            : 'w-12 max-w-14 lg:w-16 lg:max-w-18 h-fit '; // icon sizes bottom row
 
     return (
-        <div className="relative col-span-1 h-full w-full rounded-xl py-10 text-lg font-semibold shadow-md">
+        <div className="relative col-span-1 h-full w-full rounded-xl py-2 text-lg font-semibold shadow-md">
             <img
                 src={item.image}
                 alt={item.description}
@@ -50,7 +50,7 @@ export const DashboardItemComponent: FC<DashboardItemComponentProps> = ({
                 >
                     {calculatedValue}
                 </span>
-                <span className="px-1 text-sm">{item.description}</span>
+                <span className="px-1 text-xs">{item.description}</span>
             </div>
         </div>
     );

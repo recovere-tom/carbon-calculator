@@ -13,12 +13,12 @@ const ItemSelection = () => {
     };
 
     return (
-        <div className="flex w-full min-w-[300px] flex-col gap-2">
+        <div className="flex w-full min-w-[300px] flex-col gap-2 lg:gap-6">
             <h4 className="text-2xl text-black lg:text-3xl">
                 Select <span className="text-[#F8842C]">item</span>
             </h4>
 
-            <div className="grid w-full grid-cols-3 gap-4 lg:grid-cols-4">
+            <div className="grid w-full grid-cols-3 gap-2 lg:gap-4 lg:grid-cols-4">
                 {DonationItems.map((item, index) => (
                     <button
                         key={index}
@@ -44,7 +44,7 @@ const ItemSelection = () => {
                             className={`mb-2 w-12 lg:w-16 ${selectedItem === item.itemName ? '' : 'grayscale'}`}
                         />
                         <span
-                            className={`text-wrap text-lg font-semibold transition duration-300 ${
+                            className={`text-wrap text-xs font-semibold transition duration-300 ${
                                 selectedItem === item.itemName
                                     ? 'text-[#F8842C]'
                                     : 'text-black opacity-70 group-hover:text-white'

@@ -74,9 +74,9 @@ export const Form: FC = () => {
     ]);
 
     return (
-        <form className="flex h-full w-full flex-col lg:max-h-[650px] lg:flex-row">
+        <form className="flex h-full w-full flex-col lg:max-h-[600px] lg:flex-row">
             {/* User Form Interface */}
-            <div className="flex flex-grow flex-col gap-6">
+            <div className="flex flex-grow flex-col gap-4 lg:gap-6">
                 <h4 className="text-2xl text-black transition-all lg:text-3xl">
                     Select <span className="text-[#F8842C]">locations</span>
                 </h4>

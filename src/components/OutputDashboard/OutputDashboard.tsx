@@ -76,8 +76,8 @@ const OutputDashboard: FC = () => {
     const bottomRowItems = dashboardItems.slice(3);
 
     return (
-        <div className="flex flex-col gap-6">
-            <h4 className="text-2xl text-black transition-all lg:mt-4 lg:text-3xl">
+        <div className="flex flex-col gap-2 lg:gap-6">
+            <h4 className="lg:mt- text-2xl text-black transition-all lg:text-3xl">
                 Understanding the <span className="text-[#F8842C]">impact</span>
             </h4>
             <div className="grid grid-cols-3 gap-2 lg:gap-4">

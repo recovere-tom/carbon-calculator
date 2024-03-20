@@ -74,7 +74,7 @@ const MapComponent: FC<MapComponentProps> = ({
             : null;
 
     return (
-        <div className="relative h-[250px] lg:h-[650px]">
+        <div className="relative h-[250px] lg:h-[600px]">
             <MapContainer
                 center={[-25.2744, 133.7751]}
                 zoom={-1}
