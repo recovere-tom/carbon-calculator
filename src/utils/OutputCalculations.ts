@@ -14,6 +14,7 @@ import { useFormDataContext } from './context/FormDataContext';
 // // https://gitnux.org/average-speed-of-a-plane/#:~:text=The%20cruising%20speed%20of%20a,plane%20is%20about%20560%20mph.
 // // average speed of a plane is about 900 km/h (560 mph)
 // // therefore 1 hour of flying = 900 km
+// // const fuelSurchargeRate = 0.2825; // Fuel surcharge expressed as a decimal (as of Feb 2024)
 
 // //     const fuelConsumptionPerHour = 3000; // kg of fuel
 // //     const speedOfPlane = 900; // Average speed in km/h
@@ -30,13 +31,26 @@ import { useFormDataContext } from './context/FormDataContext';
 // //     };
 
 // Assumptions
-//Reference: https://auspost.com.au/content/dam/auspost_corp/media/documents/post-guides/international-post-charges-easy-guide.pdf
+
+// SHIPPING COSTS
+// OPTION 1
+// Reference: https://auspost.com.au/content/dam/auspost_corp/media/documents/post-guides/international-post-charges-easy-guide.pdf
 // Zone 1 (New Zealand): $18.78 per kg
 // Zone 2 (Asia Pacific): $29.40 per kg
 // Zone 3 (US & Canada): $32.43 per kg
 // Zone 4 (UK & Europe):  $35.63 per kg
 // Zone 5 (Rest of the World): $44.88 per kg
 // Average shipping cost base rate per kg = 32 AUD
+
+// OPTION 2
+//Reference: https://www.dfsworldwide.com/Shipping-to-Australia.html
+// Heathrow airport to Sydney airport or Melbourne airport: (Airport to Airport price guideline)
+// 50 kg =  £150.00
+// 100kg = £240.00
+// 200kg = £420.00
+// On average: 1kg = £2.50
+// 1 GDP = 1.9 $AUD (as of Feb 2024)
+// Approx 1kg = 2.5 * 1.9 = 4.75 AUD to ship from Heathrow to Sydney or Melbourne
 
 //Reference for water bottle cost:
 // https://www.statista.com/chart/29544/cost-of-a-bottle-of-water-around-the-world/
@@ -72,11 +86,11 @@ const OutputCalculations = () => {
     const { formData } = useFormDataContext();
     const distanceKM = formData.distanceKM;
     const itemWeight = formData.itemWeight; // in kg
+    const costPerBottle = 0.7; // Average cost per bottle in AUD
     const mobilePhoneCO2ePerYear = 0.81002625; // kg CO2e
     const treesPerEmissionTonne = 5; // trees per 1 tonne of CO2e
     const shippingCostPerKg = 32; // Average base rate per kg in AUD
-    const fuelSurchargeRate = 0.2825; // Fuel surcharge expressed as a decimal (as of Feb 2024)
-    const emissionFactor = 500; // grams CO2e per kg of item weight per km traveled
+    const emissionFactor = 500; // grams CO2e per tonne of item weight per km traveled
 
     // Calculate total CO2e in kg for the flight based on item weight and distance
     const calculateTotalCO2e =
@@ -90,19 +104,14 @@ const OutputCalculations = () => {
         (carbonEmissionsInTonnes * 1000) / mobilePhoneCO2ePerYear; // Convert tonnes back to kg for calculation
 
     // Calculate shipping costs based on item weight
-    const shippingCosts = () => {
-        const baseCost = itemWeight * shippingCostPerKg;
-        const fuelCost = baseCost * fuelSurchargeRate;
-        return baseCost + fuelCost; // Total shipping cost
-    };
+    const shippingCosts = itemWeight * shippingCostPerKg;
 
     // Calculate trees needed to offset emissions for the item
     const treesNeededToOffsetEmissions =
         carbonEmissionsInTonnes * treesPerEmissionTonne; // 5 trees per 1 tonne of CO2e
 
     // Calculate bottles of water that could be purchased locally with the shipping costs
-    const costPerBottle = 0.7; // Average cost per bottle in AUD
-    const bottlesOfWater = shippingCosts() / costPerBottle;
+    const bottlesOfWater = shippingCosts / costPerBottle;
 
     return {
         shippingCosts,

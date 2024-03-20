@@ -42,16 +42,22 @@ const MapComponent = () => {
 
     return (
         <MapContainer
-            center={[-25.2744, 133.7751]} // Default center
-            zoom={1} // Default zoom level
+            center={[-25.2744, 133.7751]}
+            zoom={2}
             scrollWheelZoom={false}
             touchZoom={true}
             tap={false}
-            className="flex h-[250px] flex-shrink rounded-xl border border-gray-200 shadow-md lg:h-full lg:w-full"
+            minZoom={2} // Set minimum zoom level
+            maxZoom={5} // Set maximum zoom level
+            maxBounds={[
+                [-500, -360],
+                [500, 360],
+            ]} // Set max bounds to the world's geographical limits
+            className="flex h-[250px] flex-shrink rounded-xl border border-gray-200 bg-[#AAD3DF] shadow-md lg:h-full lg:w-full"
         >
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                noWrap={true}
+                noWrap={false}
             />
             {originMarker && (
                 <Marker position={originMarker} icon={originIcon}>

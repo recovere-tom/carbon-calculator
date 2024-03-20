@@ -72,7 +72,8 @@ const OutputDashboard: FC = () => {
         {
             image: CostImage,
             tooltip: 'Calculation details for the cost...',
-            calculateValue: () => `$${shippingCosts().toLocaleString()}`,
+            calculateValue: () =>
+                distanceKM > 0 ? `$${shippingCosts.toLocaleString()}` : 0,
             description: 'to transport item',
         },
         {
@@ -92,7 +93,10 @@ const OutputDashboard: FC = () => {
         {
             image: WaterBottleImage,
             tooltip: 'Calculation details for bottles of water...',
-            calculateValue: () => Math.floor(bottlesOfWater).toLocaleString(),
+            calculateValue: () =>
+                distanceKM > 0
+                    ? Math.floor(bottlesOfWater).toLocaleString()
+                    : 0,
             description: 'bottles of water purchased locally',
         },
         {

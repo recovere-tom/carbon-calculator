@@ -38,6 +38,12 @@ src/pages/...: Contains the main page the application.
   * Number of trees required to offset the emissions of the transportation
   * Calculations, Logic and references found:  src\utils\OutputCalculations.ts
 
+## Versions & Updates
+
+Version 1: Core functions including dropdown menu for locations, dynamic map, item selection and dashboard output.
+Version 1.1: Improved formula for carbon emissions and shipping costs, changed UI to be clearer on desktop and mobile.
+Version 1.2: Optimised for mobile as map component was overflowing its container on x-axis
+
 ## Getting Started
 
 To get started with this project, clone the repository and install the dependencies:

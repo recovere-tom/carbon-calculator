@@ -94,7 +94,13 @@ export const Form: FC = () => {
                 />
 
                 {/* Map Component for mobile view */}
-                <div className="relative mx-auto mb-10 h-[200px] w-[90%] flex-col  lg:hidden">
+                {/* This map is for aesthetic purposes only */}
+
+                <div
+                    aria-hidden="true"
+                    aria-label="Decorative Map"
+                    className="relative mx-auto mb-10 h-[200px] w-[90%] flex-col  lg:hidden"
+                >
                     <MapComponent />
                 </div>
 
@@ -103,7 +109,12 @@ export const Form: FC = () => {
             </div>
 
             {/* Map Component for non-mobile view */}
-            <div className="relative hidden w-[80%] flex-col rounded-xl lg:ml-12 lg:flex lg:h-[650px]">
+            {/* This map is for aesthetic purposes only */}
+
+            <div
+                aria-label="Decorative Map"
+                className="relative hidden w-[80%] flex-col rounded-xl lg:ml-12 lg:flex lg:h-[650px]"
+            >
                 <MapComponent />
             </div>
         </form>
