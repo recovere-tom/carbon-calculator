@@ -51,6 +51,15 @@ Version 1.4:
 * Removed tooltip from each dashboard card.
 * Improved 'anchor' location of map pins to better represent the selected locations.
 
+Version 1.5 (current):
+
+* Refactored code and extracted components into separate files for better code organisation
+* Included text colour changing animations for dashboard output.
+* Added an overlay guide for the user to select locations then item.
+* Added fade-out animation of overlay.
+* Prevented dashboard displaying information prior to having locations + items selected (distance in KM the exception)
+* Increased map width in mobile view without map overflowing div container
+* Adjusted side of icons to have better dynamic sizing for desktop, tablet and mobile.
 
 ## Getting Started
 

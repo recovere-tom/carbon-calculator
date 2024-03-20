@@ -26,11 +26,17 @@ const ItemSelection = () => {
                         onClick={() =>
                             handleItemClick(item.itemName, item.itemWeight)
                         }
-                        className={`border-b-none flex flex-col items-center justify-end rounded-2xl border-transparent bg-gray-100 p-4 outline-transparent  transition duration-300 focus:border-transparent active:border-transparent ${
+                        className={`
+                        border-b-none group flex flex-col items-center justify-end rounded-2xl border-transparent
+                        p-4 outline-none transition duration-300
+                        ${
                             selectedItem === item.itemName
                                 ? 'scale-95 bg-gradient-to-b from-[#1F408E] to-[#04143C] shadow-inner'
                                 : 'bg-gray-100 shadow hover:bg-[#04143C]'
-                        }`}
+                        }
+                        hover:text-white focus:border-transparent focus:outline-none focus:ring-2
+                        focus:ring-[#F8842C] focus:ring-offset-2 active:border-transparent
+                    `}
                     >
                         <img
                             src={item.image}
@@ -38,10 +44,10 @@ const ItemSelection = () => {
                             className={`mb-2 w-12 lg:w-16 ${selectedItem === item.itemName ? '' : 'grayscale'}`}
                         />
                         <span
-                            className={`text-wrap text-lg font-semibold ${
+                            className={`text-wrap text-lg font-semibold transition duration-300 ${
                                 selectedItem === item.itemName
                                     ? 'text-[#F8842C]'
-                                    : 'text-black opacity-70 hover:text-white'
+                                    : 'text-black opacity-70 group-hover:text-white'
                             }`}
                         >
                             {item.itemName}

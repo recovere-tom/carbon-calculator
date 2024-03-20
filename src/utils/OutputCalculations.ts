@@ -84,17 +84,19 @@ import { useFormDataContext } from './context/FormDataContext';
 
 const OutputCalculations = () => {
     const { formData } = useFormDataContext();
-    const distanceKM = formData.distanceKM;
-    const itemWeight = formData.itemWeight; // in kg
+    const distanceKM = formData.distanceKM || 0;
+    const itemWeight = formData.itemWeight || 0; // in kg
     const costPerBottle = 0.7; // Average cost per bottle in AUD
     const mobilePhoneCO2ePerYear = 0.81002625; // kg CO2e
     const treesPerEmissionTonne = 5; // trees per 1 tonne of CO2e
     const shippingCostPerKg = 32; // Average base rate per kg in AUD
     const emissionFactor = 500; // grams CO2e per tonne of item weight per km traveled
 
-    // Calculate total CO2e in kg for the flight based on item weight and distance
+    // Only calculate Calculate total CO2e in kg for the flight based on item weight and distance if BOTH distance and item weight are greater than 0
     const calculateTotalCO2e =
-        (emissionFactor * (itemWeight / 1000) * distanceKM) / 1000;
+        distanceKM > 0 && itemWeight > 0
+            ? (emissionFactor * (itemWeight / 1000) * distanceKM) / 1000
+            : 0;
 
     // Calculate carbon emissions in tonnes for the item
     const carbonEmissionsInTonnes = calculateTotalCO2e / 1000; // convert kg of CO2e to t of CO2e
@@ -120,6 +122,7 @@ const OutputCalculations = () => {
         mobilePhonesCharged,
         bottlesOfWater,
         distanceKM,
+        itemWeight,
     };
 };
 

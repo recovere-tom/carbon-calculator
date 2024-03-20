@@ -6,6 +6,7 @@ import BatteryImage from '../../assets/carbonCalculatorAssets/BatteryImage.webp'
 import WaterBottleImage from '../../assets/carbonCalculatorAssets/WaterBottleImage.webp';
 import TreeImage from '../../assets/carbonCalculatorAssets/TreesImage.webp';
 import OutputCalculations from '../../utils/OutputCalculations';
+import { DashboardItemComponent } from './DashboardItemComponent';
 
 interface DashboardItem {
     image: string;
@@ -14,37 +15,6 @@ interface DashboardItem {
     description: string;
 }
 
-interface DashboardItemComponentProps {
-    item: DashboardItem;
-    rowType: 'top' | 'bottom'; // New prop to indicate the row type
-}
-
-const DashboardItemComponent: FC<DashboardItemComponentProps> = ({
-    item,
-    rowType,
-}) => {
-    // Conditional classes based on rowType
-    const imageClasses =
-        rowType === 'top'
-            ? 'w-[calc(100%-1rem)] h-[50%] lg:w-[40%] lg:h-[40%]' // 2:1 aspect ratio for top row
-            : 'w-[30%] h-[30%] lg:w-[10%] lg:h-[40%]'; // 1:1 aspect ratio for bottom row
-
-    return (
-        <div className="relative col-span-1 h-full w-full rounded-xl py-10 text-lg font-semibold shadow-md">
-            <img
-                src={item.image}
-                alt={item.description}
-                className={`mx-auto mb-2 ${imageClasses}`}
-            />
-            <div className="flex w-full flex-col justify-center text-center">
-                <span className="text-black xl:text-3xl">
-                    {item.calculateValue()}
-                </span>
-                <span className="px-1 text-sm">{item.description}</span>
-            </div>
-        </div>
-    );
-};
 const OutputDashboard: FC = () => {
     const {
         shippingCosts,
@@ -53,6 +23,7 @@ const OutputDashboard: FC = () => {
         mobilePhonesCharged,
         bottlesOfWater,
         distanceKM,
+        itemWeight,
     } = OutputCalculations();
 
     const dashboardItems: DashboardItem[] = [
@@ -114,6 +85,8 @@ const OutputDashboard: FC = () => {
                     <DashboardItemComponent
                         key={index}
                         item={item}
+                        distanceKM={distanceKM}
+                        itemWeight={itemWeight}
                         rowType="top"
                     />
                 ))}
@@ -123,6 +96,8 @@ const OutputDashboard: FC = () => {
                     <DashboardItemComponent
                         key={index}
                         item={item}
+                        distanceKM={distanceKM}
+                        itemWeight={itemWeight}
                         rowType="bottom"
                     />
                 ))}

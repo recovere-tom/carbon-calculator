@@ -18,6 +18,11 @@ interface Location {
 export const Form: FC = () => {
     const { formData, setForm } = useFormDataContext();
 
+    // Logic to check if both origin and destination are selected for map rendering
+    const isLocationsSelected = Boolean(
+        formData.origin && formData.destination
+    );
+    const isItemSelected = Boolean(formData.itemName);
     // Updates Data with user selected locations
 
     const handleLocationChange = (
@@ -95,13 +100,15 @@ export const Form: FC = () => {
 
                 {/* Map Component for mobile view */}
                 {/* This map is for aesthetic purposes only */}
-
                 <div
                     aria-hidden="true"
                     aria-label="Decorative Map"
-                    className="relative mx-auto mb-10 h-[200px] w-[90%] flex-col  lg:hidden"
+                    className="relative mx-auto mb-10 h-[200px] w-[99%] flex-col  lg:hidden"
                 >
-                    <MapComponent />
+                    <MapComponent
+                        isLocationsSelected={isLocationsSelected}
+                        isItemSelected={isItemSelected}
+                    />
                 </div>
 
                 {/*  Item Selection Component */}
@@ -110,12 +117,14 @@ export const Form: FC = () => {
 
             {/* Map Component for non-mobile view */}
             {/* This map is for aesthetic purposes only */}
-
             <div
                 aria-label="Decorative Map"
                 className="relative hidden w-[80%] flex-col rounded-xl lg:ml-12 lg:flex lg:h-[650px]"
             >
-                <MapComponent />
+                <MapComponent
+                    isLocationsSelected={isLocationsSelected}
+                    isItemSelected={isItemSelected}
+                />
             </div>
         </form>
     );
