@@ -26,7 +26,7 @@ const ItemSelection = () => {
                         onClick={() =>
                             handleItemClick(item.itemName, item.itemWeight)
                         }
-                        className={`border-b-none flex flex-col items-center justify-end rounded-2xl border-none bg-gray-100 p-4 outline-none  transition duration-300 focus:border-none active:border-none ${
+                        className={`border-b-none flex flex-col items-center justify-end rounded-2xl border-transparent bg-gray-100 p-4 outline-transparent  transition duration-300 focus:border-transparent active:border-transparent ${
                             selectedItem === item.itemName
                                 ? 'scale-95 bg-gradient-to-b from-[#1F408E] to-[#04143C] shadow-inner'
                                 : 'bg-gray-100 shadow hover:bg-[#04143C]'
