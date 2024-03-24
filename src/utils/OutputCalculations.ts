@@ -62,6 +62,7 @@ import { useFormDataContext } from './context/FormDataContext';
 
 //Reference for mobile phone charging:
 // https://www.carbonfootprint.com/mobile_phone_charge.html
+// https://www.comparethemarket.com.au/energy/features/carbon-footprint-of-phone-charging/
 // 1.825 kWh per year per person
 // Australasia/Oceania emissions factor = 0.44385 kgCO2e
 // therefore 1 phone charged per day per year = 0.81002625 kg CO2e
@@ -78,8 +79,8 @@ import { useFormDataContext } from './context/FormDataContext';
 // Total Emissions = 689.3775 kg CO2
 
 // 500g co2 per tonne per km
-// if 500g of co2e = 1t of weight per km
-// then, 1km of co2e = 2t of weight per km
+// if 500g of co2e = 1kg of weight per km
+// then, 1km of co2e = 2kg of weight per km
 // therefore, 1kg of weight per km = 0.5g of co2e
 
 const OutputCalculations = () => {
